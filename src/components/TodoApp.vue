@@ -91,10 +91,20 @@
         <div v-if="!hasTodo" class="bg-amber-200 text-amber-950 p-2 rounded-lg mt-2 border-1 border-blue-800 flex justify-center items-center">
             <span class="text-lg"><Alert /></span>Empieza agregando una nueva tarea!
         </div>
-        <div v-else class="flex justify-between text-sm py-2 bg-amber-200 p-2 mt-2">
-            <div><span class="font-bold">Total:</span> {{ countAll }}</div> 
-            <div><span class="font-bold">Pendientes:</span> {{ countPending }}</div>
-            <div><span class="font-bold">Completados:</span> {{ countCompleted }}</div>
+        <div v-else>
+
+            <div v-if="countPending===0 && filter===Filters.Pending" class="bg-emerald-300 rounded-lg text-green-800 p-2 font-bold text-center">
+                No hay tareas pendientes
+            </div>
+            <div v-if="countCompleted===0 && filter===Filters.Completed" class="bg-emerald-300 rounded-lg text-green-800 p-2 font-bold text-center">
+                No hay tareas completadas
+            </div>
+
+            <div class="flex justify-between text-sm py-2 bg-amber-200 p-2 mt-2">
+                <div><span class="font-bold">Total:</span> {{ countAll }}</div> 
+                <div><span class="font-bold">Pendientes:</span> {{ countPending }}</div>
+                <div><span class="font-bold">Completados:</span> {{ countCompleted }}</div>
+            </div>
         </div>
     </div>
     

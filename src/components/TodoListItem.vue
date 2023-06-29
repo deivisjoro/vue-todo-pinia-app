@@ -43,7 +43,7 @@
                 <span :class="`flex items-center justify-center text-sm mr-2 h-5 w-5 border-2 ${done?'bg-blue-800 text-white border-white':'bg-white text-white border-blue-700'} rounded-full pb-1`">
                     <CheckBold />
                 </span>
-                <p class="text-lg">
+                <p class="text-lg" :class="{'line-through': done}">
                     {{ description }}
                 </p>
             </div>
